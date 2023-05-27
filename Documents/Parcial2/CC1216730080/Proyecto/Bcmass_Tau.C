@@ -55,7 +55,7 @@ TCanvas* CreateCanvasMass(TString cname, RooFitResult* result, RooDataSet data, 
     data.plotOn(frameM, Name("Data"));
     MassTauModel.plotOn(frameM, DrawOption("L"),LineColor(kRed),LineWidth(2), Name("Mass component"));
 
-    frameM->SetYTitle(Form("Events / %f GeV", (6.5-6.05)/nbin)); 
+    frameM->SetYTitle(Form("Events / %f MeV", (6.5-6.05)/nbin)); 
     frameM->SetLabelSize(0.02,"XY");
     frameM->SetTitleSize(0.03,"XY");
     frameM->GetYaxis()->CenterTitle();   
@@ -333,7 +333,7 @@ void Bcmass_Tau(Double_t ptl=12.0, Double_t pth=70.0){
     cout<<" Entries : "<<nentries<<endl;
 
     //------------------------------
-    RooRealVar M("M","M(J/#psi #pi^{+}) (GeV)",Mmin,Mmax);
+    RooRealVar M("M","M(J/#psi #pi^{+}) (MeV)",Mmin,Mmax);
     RooRealVar Tau("Tau","#tau(J/#psi #pi^{+}) (ps)",tmin,tmax);
     RooRealVar TauErr("TauError","#Delta#tau(J/#psi #pi^{+}) (ps)",terrmin,terrmax);
     RooDataSet data("data","Filtered data Bc mass/lifetime",RooArgSet(M, Tau, TauErr));
@@ -386,8 +386,8 @@ void Bcmass_Tau(Double_t ptl=12.0, Double_t pth=70.0){
     RooExponential Mbkg("Mbkg","Exp. Background",M,m_c_bkg);
 
     //Modelo para la señal: gaussiana.
-    RooRealVar mean("mean"," Mass mean",6.275,6.25,6.3,"GeV");
-    RooRealVar width("width"," Mass width",0.10,0.01,0.15,"GeV");
+    RooRealVar mean("mean"," Mass mean",6.275,6.25,6.3,"MeV");
+    RooRealVar width("width"," Mass width",0.10,0.01,0.15,"MeV");
     RooGaussian Sig("Sig"," Signal PDF",M,mean,width);
 
     //Modelo combinado: exponencial + gaussiana.

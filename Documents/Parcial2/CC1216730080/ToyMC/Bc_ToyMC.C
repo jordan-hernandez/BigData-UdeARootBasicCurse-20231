@@ -113,7 +113,7 @@ TCanvas* CreateCanvasNom(TString cname, RooFitResult* result, RooDataSet *data, 
   legMass->SetFillColor(0); 
   legMass->SetBorderSize(0);
   legMass->SetFillStyle(0); 
-  legMass->SetHeader(Form("%1.1f #leq p_{T}(B_{s}^{0}) < %1.1f GeV ",ptl,pth));
+  legMass->SetHeader(Form("%1.1f #leq p_{T}(B_{s}^{0}) < %1.1f MeV ",ptl,pth));
   legMass->Draw(); 
   
   //TLatex *   tex1 = new TLatex(0.92,0.926,"61.2 fb^{-1} (13 TeV)");
@@ -160,7 +160,7 @@ void Bc_ToyMC(Int_t ntotal=1000, Int_t seed=5, Double_t ptl=12, Double_t pth=70)
   Double_t Mmin = 6.04; 
   Double_t Mmax = 6.50;
 
-  RooRealVar M("M","M(J/#psi #pi^{+}) (GeV)",Mmin,Mmax);
+  RooRealVar M("M","M(J/#psi #pi^{+}) (MeV)",Mmin,Mmax);
   //RooDataSet data("data","data",RooArgSet(M));
  
   //RooAbsReal::defaultIntegratorConfig()->setEpsAbs(1e-10) ;
@@ -176,8 +176,8 @@ void Bc_ToyMC(Int_t ntotal=1000, Int_t seed=5, Double_t ptl=12, Double_t pth=70)
   //**** define nominal signal ****
   //gaussians                                                                                                                                                   
   //RooRealVar mean("mean"," Mass mean",3.686097);
-  RooRealVar mean("mean"," Mass mean",6.275,6.25,6.3,"GeV");
-  RooRealVar width("width"," Mass width",0.10,0.01,0.15,"GeV");
+  RooRealVar mean("mean"," Mass mean",6.275,6.25,6.3,"MeV");
+  RooRealVar width("width"," Mass width",0.10,0.01,0.15,"MeV");
   RooGaussian Sig("Sig"," Signal PDF",M,mean,width);
     
   //********final PDF ********

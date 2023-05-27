@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////
 // This class has been automatically generated on
-// Sat May 27 12:08:57 2023 by ROOT version 6.28/00
+// Sat May 27 12:49:45 2023 by ROOT version 6.28/00
 // from TTree tree/tree
 // found on file: ToyMC_Bs_ptbins_5_12_70.root
 //////////////////////////////////////////////////////////

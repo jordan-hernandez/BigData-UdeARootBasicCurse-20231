@@ -109,7 +109,7 @@ TCanvas* CreateCanvasNomPull(TString cname, RooFitResult* result, RooDataSet dat
   data.plotOn(Mframe,DataError(RooAbsData::SumW2),MarkerSize(1.0),XErrorSize(0),Name("Data"));
   MassModel.plotOn(Mframe);
   
-  Mframe->SetYTitle(Form("Events / %1.4f GeV", (6.5-6.04)/nbin)); 
+  Mframe->SetYTitle(Form("Events / %1.4f MeV", (6.5-6.04)/nbin)); 
   Mframe->SetLabelSize(0.07,"XY");
   Mframe->SetTitleSize(0.08,"XY");
   Mframe->GetYaxis()->CenterTitle();   
@@ -150,8 +150,8 @@ TCanvas* CreateCanvasNomPull(TString cname, RooFitResult* result, RooDataSet dat
   legpar->SetFillColor(0);
   legpar->SetBorderSize(0);
   legpar->SetFillStyle(0);
-  legpar->AddEntry("",Form("M(B_{c}^{+}) = %1.2f #pm %1.2f GeV",Mpsi,MpsiE),"");
-  legpar->AddEntry("",Form("#sigma = %1.2f #pm %1.2f GeV",G,GE),"");
+  legpar->AddEntry("",Form("M(B_{c}^{+}) = %1.2f #pm %1.2f MeV",Mpsi,MpsiE),"");
+  legpar->AddEntry("",Form("#sigma = %1.2f #pm %1.2f MeV",G,GE),"");
   legpar->AddEntry("",Form("N_{B_{c}^{+}} = %1.0f #pm %1.0f",Ns.getVal(),Ns.getError()),"");
   legpar->AddEntry("",Form("N_{bkg} = %1.0f #pm %1.0f",Nb.getVal(),Nb.getError()),"");
   legpar->Draw();
@@ -162,7 +162,7 @@ TCanvas* CreateCanvasNomPull(TString cname, RooFitResult* result, RooDataSet dat
   legMass->SetFillColor(0); 
   legMass->SetBorderSize(0);
   legMass->SetFillStyle(0); 
-  //legMass->SetHeader(Form("%1.1f #leq p_{T}(B_{s}^{0}) < %1.1f GeV ",ptl,pth));
+  //legMass->SetHeader(Form("%1.1f #leq p_{T}(B_{s}^{0}) < %1.1f MeV ",ptl,pth));
   legMass->Draw();
   
   pad2->cd();
@@ -240,7 +240,7 @@ void BcMassFit(Double_t ptl=12.0, Double_t pth=70.0){
     cout<<" Entries : "<<nentries<<endl;
     
     //------------------------------
-    RooRealVar M("M","M(J/#psi #pi^{+}) (GeV)",Mmin,Mmax);
+    RooRealVar M("M","M(J/#psi #pi^{+}) (MeV)",Mmin,Mmax);
     RooDataSet data("data","data",RooArgSet(M));
 
     Int_t nTen = nentries/10;
@@ -270,8 +270,8 @@ void BcMassFit(Double_t ptl=12.0, Double_t pth=70.0){
     RooExponential bkg1("bkg1","Exp. Background",M,c);
 
     //Modelo para la señal: gaussiana.
-    RooRealVar mean("mean"," Mass mean",6.275,6.25,6.3,"GeV");
-    RooRealVar width("width"," Mass width",0.10,0.01,0.15,"GeV");
+    RooRealVar mean("mean"," Mass mean",6.275,6.25,6.3,"MeV");
+    RooRealVar width("width"," Mass width",0.10,0.01,0.15,"MeV");
     RooGaussian Sig("Sig"," Signal PDF",M,mean,width);
 
     //Modelo combinado: exponencial + gaussiana.

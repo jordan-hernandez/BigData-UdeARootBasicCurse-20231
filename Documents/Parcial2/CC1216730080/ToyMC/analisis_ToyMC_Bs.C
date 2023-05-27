@@ -80,13 +80,13 @@ TCanvas* CreateCanvasGauss(TString cname, RooFitResult* result, RooDataSet data,
   Double_t Ge = bwg1.getError();
   //Double_t G2e = bwg1.getPropagatedError(*result);
   
-  TLegend *legpar = new TLegend(0.5,0.7,0.8,0.88);
-  legpar->SetTextSize(0.04); //text size in pixels                                 
+  TLegend *legpar = new TLegend(0.6,0.7,0.82,0.88);
+  legpar->SetTextSize(0.03); //text size in pixels                                 
   legpar->SetFillColor(0);
   legpar->SetBorderSize(0);
   legpar->SetFillStyle(0); 
-  legpar->AddEntry("",Form("mean = %1.4f #pm %1.4f GeV ",bwm1.getVal(), bwm1.getError()),"");
-  legpar->AddEntry("",Form("#sigma_{1} = %1.4f #pm %1.4f GeV",G, Ge),"");
+  legpar->AddEntry("",Form("mean = %1.4f #pm %1.4f MeV ",bwm1.getVal(), bwm1.getError()),"");
+  legpar->AddEntry("",Form("#sigma_{1} = %1.4f #pm %1.4f MeV",G, Ge),"");
   legpar->Draw();
 
   TLegend *legMass = new TLegend(0.64,0.57,0.83,0.65);
@@ -95,7 +95,7 @@ TCanvas* CreateCanvasGauss(TString cname, RooFitResult* result, RooDataSet data,
   legMass->SetFillColor(0); 
   legMass->SetBorderSize(0);
   legMass->SetFillStyle(0); 
-  legMass->SetHeader(Form("%1.1f #leq p_{T}(B_{s}^{0}) < %1.1f GeV ",ptl,pth));
+  //legMass->SetHeader(Form("%1.1f #leq p_{T}(B_{s}^{0}) < %1.1f MeV ",ptl,pth));
   legMass->Draw(); 
 
   //TLatex *   tex1 = new TLatex(0.88,0.926,"L = 78.2 fb^{-1} (#sqrt{s} = 13 TeV)");
@@ -149,13 +149,13 @@ using namespace std;
 Double_t MminP = -3.0;
 Double_t MmaxP = 3.0;  
 
-RooRealVar Yi("Yi"," B_{s}^{0} yield Pull",MminP,MmaxP); 
+RooRealVar Yi("Yi"," B_{c}^{+} yield Pull",MminP,MmaxP); 
 RooDataSet dataYi("dataYi","dataYi",RooArgSet(Yi));
 
-RooRealVar Yib("Yib"," B_{s}^{0} yield bkg Pull",MminP,MmaxP); 
+RooRealVar Yib("Yib"," B_{c}^{+} yield bkg Pull",MminP,MmaxP); 
 RooDataSet dataYib("dataYib","dataYib",RooArgSet(Yib)); 
 
-RooRealVar Mu("Mu"," B_{s}^{0} mass Pull",MminP,MmaxP); 
+RooRealVar Mu("Mu"," B_{c}^{+} mass Pull",MminP,MmaxP); 
 RooDataSet dataMu("dataMu","dataMu",RooArgSet(Mu));   
 
 Int_t nTen = nentries/10;

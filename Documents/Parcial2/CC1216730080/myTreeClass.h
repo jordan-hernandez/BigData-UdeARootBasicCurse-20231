@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////
 // This class has been automatically generated on
-// Sat May 27 11:55:13 2023 by ROOT version 6.28/00
+// Sat May 27 12:46:30 2023 by ROOT version 6.28/00
 // from TTree tree/Bc mass data
 // found on file: Bc_data.root
 //////////////////////////////////////////////////////////
