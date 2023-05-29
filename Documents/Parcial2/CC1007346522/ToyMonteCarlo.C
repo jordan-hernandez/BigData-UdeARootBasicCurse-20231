@@ -152,10 +152,9 @@ void ToyMonteCarlo(Int_t ntotal=1,Int_t seed = 17)
       cout << "No se pudo abrir el archivo entrada fit pr bins" << endl;
       exit( 1 );
     }
-    // Sacando los valores
+  // Sacando los valores
   entrada>> nsi >> nsie >> nbi >> nbie >> ci >> cie >> fsi >> fsie >> mui >> muie >> g1i >> g1ie >> g2i >> g2ie ;
   entrada.close();
-  cout << "Ns, Nb, g2 values: " <<  nsi << " " << nbi << "  " << g2i << endl;
   
   Int_t nruns=0;
   

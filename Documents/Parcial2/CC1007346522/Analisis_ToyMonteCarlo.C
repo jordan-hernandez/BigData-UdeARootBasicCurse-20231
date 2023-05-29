@@ -55,7 +55,7 @@ TCanvas* CreateCanvasGauss(TString cname, RooFitResult* result, RooDataSet data,
     // Creando Canvas
     TCanvas *c1 = new TCanvas(cname,cname,50,50,W,H);
     c1->cd() ;  
-    c1->SetLeftMargin(0.005);
+    c1->SetLeftMargin(0.1);
     c1->SetRightMargin(0.01);
     c1->SetTopMargin(0.09);
     c1->SetBottomMargin(0.1);
@@ -73,10 +73,9 @@ TCanvas* CreateCanvasGauss(TString cname, RooFitResult* result, RooDataSet data,
     Mframe->SetTitleSize(0.05,"XY");
     Mframe->GetYaxis()->CenterTitle();   
     Mframe->GetXaxis()->CenterTitle();   
-    Mframe->SetTitleOffset(1.0,"X");
-    Mframe->SetTitleOffset(0.9,"Y");
+    Mframe->SetTitleOffset(0.6,"X");
+    Mframe->SetTitleOffset(0.6,"Y");
     Mframe->SetTitleSize(0.06,"XY");
-    //Mframe->SetMaximum(39.0);
     Mframe->Draw();  
     
     // Valores y errores en valor medio y ancho de la gaussiana
@@ -90,7 +89,7 @@ TCanvas* CreateCanvasGauss(TString cname, RooFitResult* result, RooDataSet data,
     legpar->SetBorderSize(0);
     legpar->SetFillStyle(0); 
     legpar->AddEntry("",Form("mean = %1.4f #pm %1.4f GeV ",bwm1.getVal(), bwm1.getError()),"");
-    legpar->AddEntry("",Form("#sigma_{1} = %1.4f #pm %1.4f GeV",G, Ge),"");
+    legpar->AddEntry("",Form("#sigma = %1.4f #pm %1.4f GeV",G, Ge),"");
     legpar->Draw();
 
     // Legends de la Figura
@@ -142,10 +141,10 @@ void Analisis_ToyMonteCarlo()
     RooRealVar Yi("Yi"," B_{c} yield Pull",MminP,MmaxP); 
     RooDataSet dataYi("dataYi","dataYi",RooArgSet(Yi));
 
-    RooRealVar Yib("Yib"," B_{s}^{0} yield bkg Pull",MminP,MmaxP); 
+    RooRealVar Yib("Yib"," B_{c} yield bkg Pull",MminP,MmaxP); 
     RooDataSet dataYib("dataYib","dataYib",RooArgSet(Yib)); 
 
-    RooRealVar Mu("Mu"," B_{s}^{0} mass Pull",MminP,MmaxP); 
+    RooRealVar Mu("Mu"," B_{c} mass Pull",MminP,MmaxP); 
     RooDataSet dataMu("dataMu","dataMu",RooArgSet(Mu));   
 
     // Llenando los Datasets
