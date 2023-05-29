@@ -10,8 +10,7 @@
 
 using namespace RooFit;
 
-void Fit2D()
-{
+void Fit2D() {
     Float_t Masa, Tau, TauE;
 
     // Abrir archivo ROOT y obtener el árbol de datos:
