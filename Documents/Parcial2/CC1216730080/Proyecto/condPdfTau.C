@@ -99,7 +99,7 @@ void condPdfTau() {
     RooGaussModel gm("gm1", "gauss model scaled bt per-event error", Tau, bias, sigma, TauErr);
 
     //---------- Decay (x) gauss(tau|tauErr) --------------
-    RooRealVar tau("tau", "tau", 0.1);
+    RooRealVar tau("tau", "tau", 0.507);
     RooDecay decay_gm("decay_gm", "decay", Tau, tau, gm, RooDecay::SingleSided);
 
     //---------- Fit conditional decay --------------
