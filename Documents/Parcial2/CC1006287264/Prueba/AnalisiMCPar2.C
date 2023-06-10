@@ -125,7 +125,7 @@ void AnalisiMCPar2(Int_t seed = 2)
  gStyle->SetOptTitle(0);
 
 TChain *ch = new TChain("tree","");
-ch->Add("Toy_Mc_ejemplo.root/tree");  
+ch->Add("ejemplo.root/tree");  
 TTree *tree = (TTree*) ch;
 classtoy t(tree); 
 Long64_t nentries = t.fChain->GetEntries();
